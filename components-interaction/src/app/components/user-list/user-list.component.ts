@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 import { UserModel } from "src/app/models/user";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
   selector: "user-list",
@@ -9,16 +10,27 @@ import { UserModel } from "src/app/models/user";
 })
 export class UserListComponent implements OnInit {
 
-  public users: UserModel[] = [
-    {name: "Ana Popescu", email: "ana.popescu@gmail.com", dateOfBirth: new Date("01/23/2000")},
-    {name: "Elena Ion", email: "elena.ion@gmail.com", dateOfBirth: new Date("04/29/2020")},
-    {name: "Alex Ionescu", email: "alex.ionescu@gmail.com", dateOfBirth: new Date("07/12/1999")},
-    {name: "Vlad Zorlescu", email: "vlad.zorlescu@gmail.com", dateOfBirth: new Date("03/27/1990")}
-  ]
+  public users: UserModel[] = [];
+  public newUser?: UserModel;
 
-  public constructor() { }
-
+  public constructor(private userService: UserService) { 
+  }
+  
   public ngOnInit(): void {
+    this.users = this.userService.getUsers();
   }
 
+  public addUserOnClick(): void {
+    let nameBox = prompt("Please enter your name:", "");
+    const emailBox = prompt("Please enter your email:", "");
+    if(nameBox !== null && emailBox !== null){
+      const date = new Date();
+      this.newUser = {name: nameBox, email: emailBox, dateOfBirth: date};
+      this.userService.addUser(this.newUser);
+    }
+  }
+
+  public deleteUserOnClick(user: UserModel){
+    this.userService.deleteUser(user);
+  }
 }
