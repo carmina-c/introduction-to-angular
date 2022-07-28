@@ -11,7 +11,6 @@ import { UserService } from "src/app/services/user.service";
 export class UserListComponent implements OnInit {
 
   public users: UserModel[] = [];
-  public newUser?: UserModel;
 
   public constructor(private userService: UserService) { 
   }
@@ -20,17 +19,11 @@ export class UserListComponent implements OnInit {
     this.users = this.userService.getUsers();
   }
 
-  public addUserOnClick(): void {
-    let nameBox = prompt("Please enter your name:", "");
-    const emailBox = prompt("Please enter your email:", "");
-    if(nameBox !== null && emailBox !== null){
-      const date = new Date();
-      this.newUser = {name: nameBox, email: emailBox, dateOfBirth: date};
-      this.userService.addUser(this.newUser);
-    }
+  public handleAddUserClick(): void {
+    this.userService.addUser();
   }
 
-  public deleteUserOnClick(user: UserModel){
+  public handleDeleteUserClick(user: UserModel){
     this.userService.deleteUser(user);
   }
 }
