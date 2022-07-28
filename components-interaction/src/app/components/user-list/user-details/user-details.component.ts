@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+
 import { UserModel } from "src/app/models/user";
 
 @Component({
@@ -14,9 +15,7 @@ export class UserDetailsComponent implements OnInit {
   public constructor() { }
 
   public ngOnInit(): void {
-    if(this.user){
-      console.log(this.user.dateOfBirth);
-    }
+   
   }
 
 }
