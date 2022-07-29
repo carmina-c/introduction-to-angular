@@ -1,1 +1,2 @@
-<user-details *ngFor="let user of users" [user]="user"></user-details>
+<button (click)="handleAddUserClick()">Add</button>
+<user-details *ngFor="let user of users" [user]="user" (onDelete)="handleDeleteUserClick(user)"></user-details>

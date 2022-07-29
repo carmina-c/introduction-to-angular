@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 import { UserModel } from "src/app/models/user";
 
@@ -12,10 +12,15 @@ export class UserDetailsComponent implements OnInit {
   @Input()
   public user?: UserModel;
 
+  @Output() 
+  public onDelete = new EventEmitter<number>();
+  
+  public handleDeleteClick() {
+    this.onDelete.emit();   
+  }
+
   public constructor() { }
 
   public ngOnInit(): void {
-   
   }
-
 }
