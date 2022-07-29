@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+
 import { AboutComponent } from "./components/about/about.component";
 import { AdminComponent } from "./components/admin/admin.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
@@ -11,7 +12,7 @@ export const routes: Routes = [
       component: AdminComponent
     },
     {
-      path: "users/:id",
+      path: "user/:id",
       component: UserInfoComponent
     },
     {

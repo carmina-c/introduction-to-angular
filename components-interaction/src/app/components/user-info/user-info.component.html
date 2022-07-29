@@ -1,6 +1,1 @@
-<div [ngClass]="{'adult-user': user?.dateOfBirth | userAge | isAdultUser}" class="card">
-    <h3>Id: {{user?.id}}</h3>
-    <h3>Name: {{user?.name}}</h3>
-    <p>Email: {{user?.email}}</p>
-    <p>Age: {{user?.dateOfBirth | userAge}}</p>
-</div>
+<user-details [user]="user"></user-details>

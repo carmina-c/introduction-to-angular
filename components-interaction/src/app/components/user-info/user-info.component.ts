@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+
 import { UserModel } from "src/app/models/user";
 import { UserService } from "src/app/services/user.service";
 
@@ -18,11 +19,11 @@ export class UserInfoComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.getUser();
+    this.prepareUser();
   }
 
-  public getUser() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+  public prepareUser() {
+    const id = Number(this.route.snapshot.paramMap.get("id"));
     this.userService.getUser(id)
       .subscribe(user => this.user = user);
   }
