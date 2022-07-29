@@ -1,6 +1,8 @@
 <div [ngClass]="{'adult-user': user?.dateOfBirth | userAge | isAdultUser}" class="card">
+    <h3>Id: {{user?.id}}</h3>
     <h3>Name: {{user?.name}}</h3>
     <p>Email: {{user?.email}}</p>
     <p>Age: {{user?.dateOfBirth | userAge}}</p>
+    <button routerLink="/user/{{user?.id}}">Info</button>
     <button (click)="handleDeleteClick()">Delete</button>
 </div>

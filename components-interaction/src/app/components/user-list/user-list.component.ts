@@ -23,7 +23,7 @@ export class UserListComponent implements OnInit {
     this.userService.addUser();
   }
 
-  public handleDeleteUserClick(user: UserModel){
+  public handleDeleteUserClick(user: UserModel) {
     this.userService.deleteUser(user);
   }
 }
