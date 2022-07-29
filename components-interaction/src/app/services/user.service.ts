@@ -35,7 +35,7 @@ export class UserService {
     }
   }
 
-  public deleteUser(user?: UserModel): void {
+  public deleteUser(user: UserModel): void {
     if (user) {
       this.users.splice(this.users.indexOf(user), 1)
     }

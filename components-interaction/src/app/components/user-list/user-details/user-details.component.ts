@@ -13,7 +13,7 @@ export class UserDetailsComponent implements OnInit {
   public user?: UserModel;
 
   @Output() 
-  onDelete = new EventEmitter<number>();
+  public onDelete = new EventEmitter<number>();
   
   public handleDeleteClick() {
     this.onDelete.emit();   
