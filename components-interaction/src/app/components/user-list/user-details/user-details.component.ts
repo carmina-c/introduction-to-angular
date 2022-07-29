@@ -15,12 +15,14 @@ export class UserDetailsComponent implements OnInit {
   @Output() 
   public onDelete = new EventEmitter<number>();
   
-  public handleDeleteClick() {
-    this.onDelete.emit();   
-  }
+  public userInfo?: UserModel;
 
   public constructor() { }
 
   public ngOnInit(): void {
+  }
+
+  public handleDeleteClick() {
+    this.onDelete.emit();   
   }
 }
