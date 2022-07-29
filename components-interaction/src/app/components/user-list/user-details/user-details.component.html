@@ -3,6 +3,6 @@
     <h3>Name: {{user?.name}}</h3>
     <p>Email: {{user?.email}}</p>
     <p>Age: {{user?.dateOfBirth | userAge}}</p>
-    <button (click)="handleDeleteClick()">Delete</button>
     <button routerLink="/users/{{user?.id}}">Info</button>
+    <button (click)="handleDeleteClick()">Delete</button>
 </div>
