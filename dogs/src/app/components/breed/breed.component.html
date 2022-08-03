@@ -1,0 +1,11 @@
+<button routerLink="/">All dogs</button>
+<div class="center">
+	<h1>{{breedName.toUpperCase()}}</h1>
+	<img [src]="breedImage">
+	<div *ngIf="subBreeds.length">
+		<h3>Sub-breeds</h3>
+		<ul *ngFor="let subBreed of subBreeds">
+			<li><a routerLink="{{subBreed}}">{{subBreed}}</a></li>
+		</ul>
+	</div>
+</div>
