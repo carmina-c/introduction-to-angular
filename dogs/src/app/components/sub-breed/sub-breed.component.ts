@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
-import { DogApiService } from "src/app/services/dog-api.service";
+import { DogService } from "src/app/services/dog-api.service";
 
 @Component({
 	selector: "sub-breed",
@@ -12,9 +12,12 @@ export class SubBreedComponent implements OnInit {
 
 	public breedName: string = "";
 	public subBreedName: string = "";
-	public subBreedImage: string = "";
+	public subBreedImageURL: string = "";
 
-	public constructor(private dogService: DogApiService,  private route: ActivatedRoute) {
+	public constructor(
+		private dogService: DogService,
+		private route: ActivatedRoute
+	) {
 		this.route.params.subscribe(params => {
 			this.breedName = params["name"];
 			this.subBreedName = params["sub-breed"];
@@ -22,8 +25,12 @@ export class SubBreedComponent implements OnInit {
 	}
 
 	public ngOnInit(): void {
+		this.getSubBreedImage();
+	}
+
+	private getSubBreedImage(): void {
 		this.dogService.getSubBreedImage(this.breedName, this.subBreedName).subscribe({
-			next: image => this.subBreedImage = image.message
+			next: image => this.subBreedImageURL = image.message
 		});
 	}
 

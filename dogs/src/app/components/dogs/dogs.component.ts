@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-import { DogApiService } from "src/app/services/dog-api.service";
+import { DogService } from "src/app/services/dog-api.service";
 
 @Component({
 	selector: "dog-list",
@@ -11,8 +11,8 @@ export class DogsComponent {
 
 	public dogs: string[] = [];
 
-	public constructor(private dogService: DogApiService) {
-		this.dogService.prepareDogs().subscribe({
+	public constructor(private dogService: DogService) {
+		this.dogService.getBreedNames().subscribe({
 			next: dogBreeds => this.dogs = Object.keys(dogBreeds.message)
 		});
 	}
