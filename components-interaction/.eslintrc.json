@@ -12,6 +12,7 @@
         "project": [
           "tsconfig.json"
         ],
+        "tsconfigRootDir": "components-interaction",
         "createDefaultProgram": true
       },
       "extends": [
@@ -23,7 +24,6 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
             "style": "camelCase"
           }
         ],
@@ -31,7 +31,6 @@
           "error",
           {
             "type": "element",
-            "prefix": "app",
             "style": "kebab-case"
           }
         ],
@@ -76,7 +75,40 @@
       "extends": [
         "plugin:@angular-eslint/template/recommended"
       ],
-      "rules": {}
+      "rules": {
+        "eqeqeq": "error",
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "indent": [
+            "error",
+            "tab",
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "no-empty-function": [
+            "error",
+            {
+                "allow": [
+                    "constructors"
+                ]
+            }
+        ],
+        "no-cond-assign": "error",
+        "no-extra-parens": "error",
+        "no-trailing-spaces": "error",
+        "no-console": "warn",
+        "space-before-blocks": "warn",
+        "comma-spacing": "warn",
+        "@typescript-eslint/explicit-member-accessibility": [
+            "error"
+        ],
+        "@typescript-eslint/explicit-function-return-type": [
+            "error"
+        ]
+      }
     }
   ]
 }

@@ -1,28 +1,25 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 import { UserModel } from "src/app/models/user";
 
 @Component({
-  selector: "user-details",
-  templateUrl: "./user-details.component.html",
-  styleUrls: ["./user-details.component.css"]
+	selector: "user-details",
+	templateUrl: "./user-details.component.html",
+	styleUrls: ["./user-details.component.css"]
 })
-export class UserDetailsComponent implements OnInit {
+export class UserDetailsComponent  {
 
   @Input()
-  public user?: UserModel;
+	public user?: UserModel;
 
-  @Output() 
+  @Output()
   public onDelete = new EventEmitter<number>();
-  
+
   public userInfo?: UserModel;
 
   public constructor() { }
 
-  public ngOnInit(): void {
-  }
-
-  public handleDeleteClick() {
-    this.onDelete.emit();   
+  public handleDeleteClick(): void {
+  	this.onDelete.emit();
   }
 }
