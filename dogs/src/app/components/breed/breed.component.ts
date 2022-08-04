@@ -16,20 +16,32 @@ export class BreedComponent implements OnInit {
 
 	public constructor(
 		private dogService: DogService,
-		private route: ActivatedRoute
+		private activatedRoute: ActivatedRoute
 	) {
-		this.route.params.subscribe(params => {
+		this.prepareNameFromURL();
+	}
+
+	public ngOnInit(): void {
+		this.prepareBreedImage();
+		this.prepareSubBreedNames();
+	}
+
+	private prepareNameFromURL(): void {
+		this.activatedRoute.params.subscribe(params => {
 			this.breedName = params["name"];
 		});
 	}
 
-	public ngOnInit(): void {
-		this.dogService.getBreedImage(this.breedName).subscribe({
-			next: image => this.breedImageURL = image.message
-		});
-		this.dogService.getSubBreeds(this.breedName).subscribe({
-			next: subBreads => this.subBreedNames = subBreads.message
-		});
+	private prepareBreedImage(): void {
+		this.dogService.getBreedImage(this.breedName).subscribe(
+			(image) => this.breedImageURL = image.message
+		);
+	}
+
+	private prepareSubBreedNames(): void {
+		this.dogService.getSubBreedNames(this.breedName).subscribe(
+			(subBreedNames) => this.subBreedNames = subBreedNames.message
+		);
 	}
 
 }

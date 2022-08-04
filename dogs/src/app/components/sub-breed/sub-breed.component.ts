@@ -16,22 +16,26 @@ export class SubBreedComponent implements OnInit {
 
 	public constructor(
 		private dogService: DogService,
-		private route: ActivatedRoute
+		private activatedRoute: ActivatedRoute
 	) {
-		this.route.params.subscribe(params => {
+		this.prepareNamesFromURL();
+	}
+
+	public ngOnInit(): void {
+		this.preapreSubBreedImage();
+	}
+
+	private prepareNamesFromURL(): void {
+		this.activatedRoute.params.subscribe(params => {
 			this.breedName = params["name"];
 			this.subBreedName = params["sub-breed"];
 		})
 	}
 
-	public ngOnInit(): void {
-		this.getSubBreedImage();
-	}
-
-	private getSubBreedImage(): void {
-		this.dogService.getSubBreedImage(this.breedName, this.subBreedName).subscribe({
-			next: image => this.subBreedImageURL = image.message
-		});
+	private preapreSubBreedImage(): void {
+		this.dogService.getSubBreedImage(this.breedName, this.subBreedName).subscribe(
+			(image) => this.subBreedImageURL = image.message
+		);
 	}
 
 }
