@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 
@@ -9,6 +10,9 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { routes } from "./routing";
 import { BreedComponent } from "./components/breed/breed.component";
 import { SubBreedComponent } from "./components/sub-breed/sub-breed.component";
+import { RedirectHomeButtonComponent } from "./components/shared/redirect-home-button/redirect-home-button.component";
+
+import { ButtonModule } from "primeng/button";
 
 @NgModule({
 	declarations: [
@@ -16,12 +20,15 @@ import { SubBreedComponent } from "./components/sub-breed/sub-breed.component";
 		DogsComponent,
 		NotFoundComponent,
 		BreedComponent,
-		SubBreedComponent
+		SubBreedComponent,
+		RedirectHomeButtonComponent
 	],
 	imports: [
 		BrowserModule,
 		HttpClientModule,
-		RouterModule.forRoot(routes)
+		BrowserAnimationsModule,
+		RouterModule.forRoot(routes),
+		ButtonModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

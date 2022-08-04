@@ -1,6 +1,7 @@
 <h1 class="title">Dogs</h1>
-<ul *ngFor="let breedName of breedNames">
+<ul *ngFor="let breedName of breedNames" style="">
 	<li>
 		<a routerLink="breed/{{breedName}}">{{breedName}}</a>
+		<hr/>
 	</li>
 </ul>

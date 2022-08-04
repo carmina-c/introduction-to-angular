@@ -1,3 +1,11 @@
 .title {
 	text-align: center;
 }
+
+ul {
+	list-style: none;
+}
+
+hr {
+	opacity: 0.2;
+}
