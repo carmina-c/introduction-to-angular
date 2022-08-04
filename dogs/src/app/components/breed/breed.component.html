@@ -5,7 +5,9 @@
 	<div *ngIf="subBreedNames.length">
 		<h3>Sub-breeds</h3>
 		<ul *ngFor="let subBreed of subBreedNames">
-			<li><a routerLink="{{subBreed}}">{{subBreed}}</a></li>
+			<li>
+				<a routerLink="{{subBreed}}"> {{subBreed}} </a>
+			</li>
 		</ul>
 	</div>
 </div>

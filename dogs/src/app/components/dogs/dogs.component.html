@@ -1,4 +1,6 @@
 <h1 class="title">Dogs</h1>
-<ul *ngFor="let dog of dogs">
-	<li><a routerLink="breed/{{dog}}">{{dog}}</a></li>
+<ul *ngFor="let breedName of breedNames">
+	<li>
+		<a routerLink="breed/{{breedName}}">{{breedName}}</a>
+	</li>
 </ul>

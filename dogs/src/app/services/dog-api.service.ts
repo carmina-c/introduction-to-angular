@@ -21,9 +21,9 @@ export class DogService {
 		return this.http.get<any>(breedImageUrl);
 	}
 
-	public getSubBreeds(breed: string): Observable<any> {
-		const subBreedsUrl = this.apiURL + "breed/" + breed + "/list";
-		return this.http.get<any>(subBreedsUrl);
+	public getSubBreedNames(breed: string): Observable<any> {
+		const subBreedNamesUrl = this.apiURL + "breed/" + breed + "/list";
+		return this.http.get<any>(subBreedNamesUrl);
 	}
 
 	public getSubBreedImage(breed: string, subBreed: string): Observable<any> {
