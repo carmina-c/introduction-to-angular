@@ -4,7 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { DogService } from "src/app/services/dog-api.service";
 
 @Component({
-	selector: "app-breed",
+	selector: "breed",
 	templateUrl: "./breed.component.html",
 	styleUrls: ["./breed.component.css"]
 })
