@@ -12,6 +12,7 @@ export class BreedComponent implements OnInit {
 
 	public breedName: string = "";
 	public breedImageURL: string = "";
+	public breedImageStatus: string = "";
 	public subBreedNames: string[] = [];
 
 	public constructor(
@@ -34,7 +35,10 @@ export class BreedComponent implements OnInit {
 
 	private prepareBreedImage(): void {
 		this.dogService.getBreedImage(this.breedName).subscribe(
-			(image) => this.breedImageURL = image.message
+			(image) => {
+				this.breedImageURL = image.message;
+				this.breedImageStatus = image.status;
+			}
 		);
 	}
 

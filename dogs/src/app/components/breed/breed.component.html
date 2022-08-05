@@ -1,7 +1,7 @@
 <redirect-home-button></redirect-home-button>
 <div class="center">
 	<h1>{{ breedName | uppercase }}</h1>
-	<div *ngIf="breedImageURL">
+	<div *ngIf="breedImageStatus==='success'">
 		<img [src]="breedImageURL" class="image">
 		<div *ngIf="subBreedNames.length">
 			<h3>Sub-breeds</h3>
@@ -15,7 +15,7 @@
 			<p>There are no sub-breeds available for this breed</p>
 		</div>
 	</div>
-	<div *ngIf="!breedImageURL">
+	<div *ngIf="breedImageStatus!=='success'">
 		<p>This breed was not found</p>
 	</div>
 </div>

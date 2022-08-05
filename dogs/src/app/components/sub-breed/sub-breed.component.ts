@@ -13,6 +13,7 @@ export class SubBreedComponent implements OnInit {
 	public breedName: string = "";
 	public subBreedName: string = "";
 	public subBreedImageURL: string = "";
+	public subBreedImageStatus: string = "";
 
 	public constructor(
 		private dogService: DogService,
@@ -34,7 +35,10 @@ export class SubBreedComponent implements OnInit {
 
 	private preapreSubBreedImage(): void {
 		this.dogService.getSubBreedImage(this.breedName, this.subBreedName).subscribe(
-			(image) => this.subBreedImageURL = image.message
+			(image) => {
+				this.subBreedImageURL = image.message;
+				this.subBreedImageStatus = image.status;
+			}
 		);
 	}
 
