@@ -1,13 +1,21 @@
 <redirect-home-button></redirect-home-button>
 <div class="center">
 	<h1>{{ breedName | uppercase }}</h1>
-	<img [src]="breedImageURL" class="image">
-	<div *ngIf="subBreedNames.length">
-		<h3>Sub-breeds</h3>
-		<ul *ngFor="let subBreed of subBreedNames">
-			<li>
-				<a routerLink="{{subBreed}}">{{subBreed}}</a>
-			</li>
-		</ul>
+	<div *ngIf="breedImageURL">
+		<img [src]="breedImageURL" class="image">
+		<div *ngIf="subBreedNames.length">
+			<h3>Sub-breeds</h3>
+			<ul *ngFor="let subBreed of subBreedNames">
+				<li>
+					<a routerLink="{{subBreed}}">{{subBreed}}</a>
+				</li>
+			</ul>
+		</div>
+		<div *ngIf="!subBreedNames.length">
+			<p>There are no sub-breeds available for this breed</p>
+		</div>
+	</div>
+	<div *ngIf="!breedImageURL">
+		<p>This breed was not found</p>
 	</div>
 </div>

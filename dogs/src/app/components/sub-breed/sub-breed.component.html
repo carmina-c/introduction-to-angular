@@ -2,5 +2,10 @@
 <div class="center">
 	<h1>{{ breedName | uppercase }}</h1>
 	<h3>{{ subBreedName | uppercase }}</h3>
-	<img [src]="subBreedImageURL" class="image">
+	<div *ngIf="subBreedImageURL">
+		<img [src]="subBreedImageURL" class="image">
+	</div>
+	<div *ngIf="!subBreedImageURL"> 
+		<p>This sub-breed was not found</p>
+	</div>
 </div>
